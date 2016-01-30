@@ -20,6 +20,10 @@ namespace MovieReview.Web
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            //Below formatter is used for returning the Json result.
+            var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
+            config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
