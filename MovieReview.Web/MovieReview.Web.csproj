@@ -236,6 +236,12 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="CustomHelpers\HTMLButtonExtension.cs" />
+    <Compile Include="CustomHelpers\HTMLCheckboxExtensions.cs" />
+    <Compile Include="CustomHelpers\HTMLCommonExtensions.cs" />
+    <Compile Include="CustomHelpers\HTMLImageExtension.cs" />
+    <Compile Include="CustomHelpers\HTMLRadioButtonExtensions.cs" />
+    <Compile Include="CustomHelpers\HTMLTextboxExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -248,6 +254,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\MoviesReviewProd.mdf" />
+    <Content Include="App_Data\MoviesReviewProd_log.ldf">
+      <DependentUpon>MoviesReviewProd.mdf</DependentUpon>
+    </Content>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap-united.css" />
     <Content Include="Content\bootstrap.css" />
@@ -305,9 +315,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
