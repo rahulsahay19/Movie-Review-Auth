@@ -1,24 +1,71 @@
-﻿<div class="jumbotron">
+﻿@using CustomHTMLHelpers.CustomHelpers
+@model MovieReview.Model.MovieViewModel
+
+<div class="jumbotron">
     <h1>Movie Review</h1>
     <p class="lead">Movie Review Single Page App built using tons of client/server side stuffs.</p>
     <p><a href="http://myview.rahulnivi.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-        a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-        is an ideal platform for building RESTful applications on the .NET Framework.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
+
+<!-- ** BEGIN SEARCH AREA ** -->
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h1 class="panel-title">Search for Movies</h1>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
+    <div class="panel-body">
+        <div class="form-group">
+            @Html.LabelFor(m => m.MovieName, "Movie Name")
+            @Html.TextBoxFor(m => m.MovieName,
+                           new { @class = "form-control" })
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
+    <div class="panel-footer">
+        @Html.BootstrapButton("<i class='glyphicon glyphicon-search'></i>&nbsp;Search",
+                              "btn-sm btn-primary",
+                              "searchButton",
+                              "Click here to search",
+                              false,
+                              false,
+                              HTMLCommonExtensions.HTMLButtonTypes.submit,
+                              "search")
+
+        <button id="btnReset"
+                class="btn btn-sm btn-primary"
+                data-pdsa-action="resetsearch">
+            <i class="glyphicon glyphicon-share-alt"></i>&nbsp;Reset
+        </button>
+        <button id="btnAdd"
+                class="btn btn-sm btn-success"
+                data-pdsa-action="add">
+            <i class="glyphicon glyphicon-plus"></i>
+            &nbsp;Add
+        </button>
     </div>
 </div>
+<!-- ** END SEARCH AREA ** -->
+<!-- BEGIN GRID AREA -->
+<div class="table-responsive">
+    <table class="table table-condensed table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th class="moviereview-action-button-column">
+                    Edit
+                </th>
+                <th>Movie Name</th>
+                <th>Director Name</th>
+                <th>Release Year</th>
+                <th>Reviews</th>
+                <th class="moviereview-action-button-column">
+                    Delete
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+ 
+
+        </tbody>
+    </table>
+</div>
+<!-- END GRID AREA -->

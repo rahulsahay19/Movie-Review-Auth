@@ -9,5 +9,7 @@ namespace MovieReview.Model
         public string DirectorName { get; set; }
         public string ReleaseYear { get; set; }
         public virtual ICollection<MoviesReview> Reviews { get; set; }
+
+        
     }
 }

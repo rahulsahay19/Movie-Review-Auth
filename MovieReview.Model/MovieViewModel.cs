@@ -1,4 +1,6 @@
-﻿namespace MovieReview.Model
+﻿using System.Collections.Generic;
+
+namespace MovieReview.Model
 {
    public class MovieViewModel
     {
@@ -7,5 +9,7 @@
         public string DirectorName { get; set; }
         public string ReleaseYear { get; set; }
         public int NoOfReviews { get; set; }
+
+      
     }
 }
