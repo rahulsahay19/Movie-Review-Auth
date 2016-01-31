@@ -61,11 +61,19 @@
             </tr>
         </thead>
 
-        <tbody>
-
- 
-
-        </tbody>
+        <tbody></tbody>
     </table>
 </div>
 <!-- END GRID AREA -->
+
+@*@section scripts
+{
+    <script src="~/JS/homeindex.js"></script>
+}*@
+
+<div ng-controller="homeIndexController as vm">
+
+    Name:- {{vm.name}}
+</div>
+
+
