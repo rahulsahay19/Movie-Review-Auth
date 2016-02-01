@@ -43,25 +43,54 @@
     </div>
 </div>
 <!-- ** END SEARCH AREA ** -->
+<div id="loader" style="display: none">
+    <i class="fa fa-spinner fa-fw fa-spin fa-2x"> </i> Getting Movies
+</div>
+<div ng-controller="homeIndexController">
+    No Of Movies:- {{data.length}}
+</div>
 <!-- BEGIN GRID AREA -->
-<div class="table-responsive">
+<div class="table-responsive" ng-controller="homeIndexController">
     <table class="table table-condensed table-bordered table-striped table-hover">
         <thead>
             <tr>
-                <th class="moviereview-action-button-column">
+                <th class="movie-review-action-button-column">
                     Edit
                 </th>
                 <th>Movie Name</th>
                 <th>Director Name</th>
                 <th>Release Year</th>
                 <th>Reviews</th>
-                <th class="moviereview-action-button-column">
+                <th class="movie-review-action-button-column">
                     Delete
                 </th>
             </tr>
         </thead>
 
-        <tbody></tbody>
+        <tbody>
+        <tr ng-repeat="i in data" class="repeat-animation">
+            <td class="movie-review-action-button-column">
+                <a href="#" data-movie-review-action="edit"
+                   data-movie-review-val="i.Id"
+                   class="btn btn-default btn-sm">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </a>
+            </td>
+            <td>{{i.MovieName}}</td>
+            <td>{{i.DirectorName}}</td>
+            <td>{{i.ReleaseYear}}</td>
+            <td>{{i.NoOfReviews}}</td>
+
+            <td class="movie-review-action-button-column">
+                <a href="#" data-movie-review-action="delete"
+                   data-movie-review-val="i.Id"
+                   onclick="return confirm('Delete this Movie?');"
+                   class="btn btn-default btn-sm">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </a>
+            </td>
+        </tr>
+        </tbody>
     </table>
 </div>
 <!-- END GRID AREA -->
@@ -71,9 +100,24 @@
     <script src="~/JS/homeindex.js"></script>
 }*@
 
-<div ng-controller="homeIndexController as vm">
+@section scripts {
 
-    Name:- {{vm.name}}
-</div>
+    <script>
+    $(document).ready(function () {
+      $("[data-movie-review-action]").on("click", function (e) {
+        e.preventDefault();
+
+        $("#EventCommand").val(
+          $(this).data("movie-review-action"));
+
+        $("#EventArgument").val(
+          $(this).attr("data-movie-review-val"));
+
+        $("form").submit();
+      });
+    });
+    </script>
+}
+
 
 

@@ -15,3 +15,9 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+.movie-review-action-button-column {
+  width: 4em;
+  text-align: center;
+}
